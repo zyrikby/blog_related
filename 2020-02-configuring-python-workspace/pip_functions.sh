@@ -87,7 +87,7 @@ function pip-freeze() {
                 echo "Usage: pip-freeze [-a|--all] [-d|--dev] [-r|--req <file>]" 1>&2
                 echo ""
                 echo "This function freezes only the top-level dependencies listed"
-                echo "in the <file> and writes the results to the <file>.lock file."
+                echo "in the <file> and writes the results to the <filename>.lock file."
                 echo "Later, the data from this file can be used to install all"
                 echo "top-level dependencies." 
                 echo ""
@@ -136,7 +136,9 @@ function pip-freeze() {
         fi
     fi
 
-    lock_file="$requirements_file.lock"
+    fullname=$(basename -- "$requirements_file")
+    filename="${fullname%.*}"
+    lock_file="$filename.lock"
     if [ $dump_all -eq 1 ] 
     then
         pip freeze > "$lock_file"
