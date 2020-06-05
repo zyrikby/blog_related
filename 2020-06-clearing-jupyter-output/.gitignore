@@ -3,6 +3,5 @@
 .venv
 .directory
 
-
-# ignoreing dataset directory
+# ignoring data in the dataset directory
 dataset/
