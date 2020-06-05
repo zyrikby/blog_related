@@ -1,0 +1,8 @@
+# ignoring auxiliary directories and files
+.ipynb_checkpoints
+.venv
+.directory
+
+
+# ignoreing dataset directory
+dataset/
